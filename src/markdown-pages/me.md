@@ -1,5 +1,5 @@
 ---
-title: "工作简历”
+title: "工作简历"
 description: "blogs detail"
 date: "2019-08-02"
 ---
