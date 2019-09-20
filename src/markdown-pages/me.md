@@ -1,5 +1,5 @@
 ---
-title: "aoub me"
+title: "about me"
 description: "blogs detail"
-date: "2019-08-02"
+date: "1992-10-29"
 ---
