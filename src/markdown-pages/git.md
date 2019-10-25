@@ -57,3 +57,18 @@ git merge hotfix/xxx --noff     # 将hotfix 分支合并到线上, 然后同步�
 git checkout dev
 git merge hotfix/xxx --noff     # 将hotfix 分支合并到开发分支,同步代码
 ```
+* stash
+```shell
+git stash     # 暂存改变
+git stash pop # 还原暂存区改动
+```
+
+* cherry-pick
+```shell
+git checkout master
+git checkout -b fix_error
+git log dev
+git cherry-pick d1afc10463d0f29b5e5c6621ce6dde0f5a1f814a
+# 由 dev 向master提交 合并请求
+
+```
