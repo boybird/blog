@@ -4,7 +4,41 @@ description: "mysql, database"
 date: "2019-10-07"
 ---
 
+# Installation and matainance
 
+## Reset password
+1. mysql_secure_installation
+
+```sh
+$ sudo mysql_secure_installation
+....
+Please set the password for root here.
+
+New password: 
+Re-enter new password:
+```
+2. Reset by using skip-grant-tables
+```sh
+$ sudo service mysql stop                   # stop mysql service
+$ sudo mkdir -p /var/run/mysqld             # Next, create a /var/run/mysqld directory to be used by MySQL process to store and access socket file: 
+$ sudo chown mysql:mysql /var/run/mysqld    
+#  Once ready manually start MySQL with the following linux command and options: 
+$ sudo /usr/sbin/mysqld --skip-grant-tables --skip-networking &
+$ [1] 2708
+$ jobs                                      #  Confirm that the process is running as expected: 
+[1]+  Running     sudo /usr/sbin/mysqld --skip-grant-tables --skip-networking &
+$ mysql -u root
+mysql> USE mysql; 
+mysql> UPDATE user SET authentication_string=PASSWORD("random_secret") WHERE User='root';
+mysql> UPDATE user SET plugin="mysql_native_password" WHERE User='root';
+mysql> quit;
+
+$ sudo pkill mysqld
+$ sudo service mysql start
+
+```
+
+# Schema
 
 <a name="jXAIz"></a>
 ## 命名
